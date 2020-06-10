@@ -79,7 +79,7 @@ def read_celestlab_results(filename="./results.h5"):
     """The celestlab script dumps the results in a HDF5 file. """
 
     with hp.File(filename, "r") as f:
-        print(f.keys())
+        # print(f.keys())
         sun_dir = f["Sun_dir"][()]
         cjd = f["cjd"][()]
         pos_ecf = f["pos_ecf"][()]
