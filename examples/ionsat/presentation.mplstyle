@@ -1,0 +1,45 @@
+axes.titlesize   : 18
+axes.labelsize   : 16
+lines.linewidth  : 2
+#lines.alpha      : 0.7
+lines.markersize : 5
+xtick.labelsize  : 10
+ytick.labelsize  : 10
+
+#axes.formatter.use_mathtext : True
+#text.usetex         : True
+#text.latex.preview : True
+#font.family = serif
+#text.latex.unicode = True
+
+mathtext.fontset : stix
+font.family : STIXGeneral
+
+xtick.top            : True
+xtick.minor.visible  : True
+ytick.right          : True
+ytick.minor.visible  : True
+
+grid.color       :   grey
+grid.linestyle    :   dotted
+grid.linewidth   :   0.8
+grid.alpha       :   0.5
+axes.grid           : True   ## display grid or not
+
+figure.figsize   : 5,5
+figure.dpi       : 100     # figure dots per inch
+#figure.subplot.top : 0.88 # parameters to make the plot fit the figure
+
+## IMAGES
+
+image.cmap   : plasma           ## A colormap name, gray etc...
+image.aspect : auto             ## equal | auto | a number
+image.interpolation  : nearest   ## see help(imshow) for options
+image.origin : lower             ## lower | upper
+
+## HISTOGRAMS
+hist.bins : 50                   ## The default number of histogram bins.
+
+
+## SAVING
+savefig.format      : eps      ## png, ps, pdf, svg
