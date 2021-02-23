@@ -42,43 +42,41 @@ How to use
 
 Load the package
 
-```
-from space_mission_design.celestlab import celestlab_wrapper
-from space_mission_design.visualisation import ploting_map
-```
+.. code-block:: python
+    from space_mission_design.celestlab import celestlab_wrapper
+    from space_mission_design.visualisation import ploting_map
+
 
 Initialize the wrapper with the needed infos
 
-```
-wrapper = celestlab_wrapper.WrapperCelestlab(scilab_path=<path to scilab bin>,
-                                             celestlab_loader=<path to the scilab celestlab loader script>)
-```
+.. code-block:: python
+    wrapper = celestlab_wrapper.WrapperCelestlab(scilab_path=<path to scilab bin>, celestlab_loader=<path to the scilab celestlab loader script>)
+
 
 The celestlab script should be modified to set the absolute path of the `start` script. The default `loader.sce` script is not meant to be loaded from another working directory.
 More precisely, I propose to modify the `loader.sce` script with :
 
-```
-[...]
-try
-      exec(<celestlab installation directory>+"etc/"+"celestlab.start");
-[...]
-```
+.. code-block:: Scilab
+    [...]
+    try
+        exec(<celestlab installation directory>+"etc/"+"celestlab.start");
+
 
 Then, you can launch the analyse :
 
-```
-import matplotlib.pyplot as plt
+.. code-block:: python
+    import matplotlib.pyplot as plt
 
-wrapper.write_paramerter_file()
-wrapper.launch_celestlab("ionsat_power.sce")
+    wrapper.write_paramerter_file()
+    wrapper.launch_celestlab("ionsat_power.sce")
 
-sun_position, cj_date, ecf_position, eclipses = wrapper.read_celestlab_results()
+    sun_position, cj_date, ecf_position, eclipses = wrapper.read_celestlab_results()
 
-ploting_map.plot_planisphere(ecf_position)
+    ploting_map.plot_planisphere(ecf_position)
 
-ploting_map.plot_poles(ecf_position)
-plt.show()
-```
+    ploting_map.plot_poles(ecf_position)
+    plt.show()
+
 
 Here, the script "ionsat_power.sce" is the one present in the folder `example/ionsat/`.
 
