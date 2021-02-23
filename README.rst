@@ -43,6 +43,7 @@ How to use
 Load the package
 
 .. code-block:: python
+
     from space_mission_design.celestlab import celestlab_wrapper
     from space_mission_design.visualisation import ploting_map
 
@@ -50,6 +51,7 @@ Load the package
 Initialize the wrapper with the needed infos
 
 .. code-block:: python
+
     wrapper = celestlab_wrapper.WrapperCelestlab(scilab_path=<path to scilab bin>, celestlab_loader=<path to the scilab celestlab loader script>)
 
 
@@ -65,6 +67,7 @@ More precisely, I propose to modify the `loader.sce` script with :
 Then, you can launch the analyse :
 
 .. code-block:: python
+
     import matplotlib.pyplot as plt
 
     wrapper.write_paramerter_file()
