@@ -25,7 +25,7 @@ specitic_params = {"year":2024, "hour":12, "inc": 51*np.pi/180, "sma": (Earth.R_
 wrapper.write_paramerter_file(specitic_params)
 wrapper.launch_celestlab("ionsat_power.sce")
 
-sun_position, cj_date, ecf_position, eclipses = wrapper.read_celestlab_results("results_ionsat.h5")
+sun_position, ecf_position, eclipses, cj_date = wrapper.read_celestlab_results("results_ionsat.h5")
 
 ploting_map.plot_planisphere(ecf_position)
 

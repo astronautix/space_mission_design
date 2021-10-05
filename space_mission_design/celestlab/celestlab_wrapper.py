@@ -108,16 +108,19 @@ class WrapperCelestlab:
         p.wait()
 
 
-    def read_celestlab_results(self, filename="./results.h5"):
+    def read_celestlab_results(self, filename="./results.h5", dataset_keys = ["Sun_dir", "pos_ecf", "interv"]):
         """The celestlab script dumps the results in a HDF5 file. """
-
+        
+        data =  []
+        
         with hp.File(filename, "r") as f:
             # print(f.keys())
-            sun_dir = f["Sun_dir"][()]
+            
+            data = [ f[k][()].T for k in dataset_keys ]
+            
             cjd = f["cjd"][()]
-            pos_ecf = f["pos_ecf"][()]
-            eclipses = f["interv"][()]
+
 
         cjd = cjd[:, 0]
 
-        return sun_dir, cjd, pos_ecf, eclipses
+        return *data, cjd
